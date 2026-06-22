@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jai Kashi Tours and Travels - Premium tour packages in Varanasi, Kashi. Explore ancient ghats, temples, Ganga Aarti, Sarnath & more. Owned by Shyamakant Pandey. Call +91 9653028323.">
+  <meta name="keywords" content="Varanasi tours, Kashi tours, Ganga Aarti tour, Kashi Vishwanath, Sarnath tour, Varanasi travel agency, boat ride Varanasi, spiritual tour India">
+  <meta name="author" content="Jai Kashi Tours and Travels">
+  <meta property="og:title" content="Jai Kashi Tours & Travels | Varanasi's Premier Tour Agency">
+  <meta property="og:description" content="Discover the spiritual heart of India with Jai Kashi Tours and Travels. Premium tour packages in Varanasi.">
+  <meta property="og:type" content="website">
+  <title>Jai Kashi Tours & Travels | Varanasi's Premier Tour Agency</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉</text></svg>">
+</head>
+<body>
+
+  <!-- ===== GRAIN OVERLAY ===== -->
+  <div class="grain-overlay"></div>
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader-logo">🕉 Jai Kashi</div>
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <!-- ===== FLOATING PARTICLES ===== -->
+  <div class="particles-container" id="particles"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container" style="justify-content: space-between;">
+      <a href="#home" class="nav-logo" id="nav-logo">
+        <div class="nav-logo-icon">🕉</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">India Travels</span>
+          <span class="nav-logo-tagline">by Jai Kashi</span>
+        </div>
+      </a>
+
+      <div class="menu-toggle-btn" id="menu-toggle-btn">
+        <span style="font-size: 0.9rem;">MENU</span>
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== FULLSCREEN MENU ===== -->
+  <div class="fullscreen-menu" id="fullscreen-menu">
+    <div class="menu-close" id="menu-close"><i class="fas fa-times"></i></div>
+    <div class="menu-states" id="menu-states">
+      <!-- States will be populated dynamically -->
+    </div>
+    <div class="menu-cities" id="menu-cities">
+      <!-- Cities will be populated dynamically -->
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-slide active" id="hero-slide-1">
+        <img src="images/varanasi-hero.png" alt="Varanasi Ghats at Sunrise">
+      </div>
+      <div class="hero-slide" id="hero-slide-2">
+        <img src="images/ganga-aarti.png" alt="Ganga Aarti Ceremony">
+      </div>
+      <div class="hero-slide" id="hero-slide-3">
+        <img src="images/kashi-vishwanath.png" alt="Kashi Vishwanath Temple">
+      </div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <i class="fas fa-award"></i>
+        Varanasi's Most Trusted Tour Agency
+      </div>
+      <h1 class="hero-title" id="hero-title">
+        Discover the <span class="highlight">Divine Beauty</span> of Kashi
+      </h1>
+      <p class="hero-subtitle" id="hero-subtitle">
+        Experience the spiritual heart of India with premium tour packages. From ancient ghats to sacred temples, let us guide your journey through the holy city of Varanasi.
+      </p>
+      <div class="hero-buttons" id="hero-buttons">
+        <a href="#packages" class="btn btn-primary" id="hero-explore-btn">
+          <i class="fas fa-compass"></i>
+          Explore Packages
+        </a>
+        <a href="https://wa.me/919653028323?text=Hello%20Jai%20Kashi%20Tours!%20I'm%20interested%20in%20booking%20a%20tour." 
+           class="btn btn-whatsapp" target="_blank" id="hero-whatsapp-btn">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp Us
+        </a>
+        <a href="#contact" class="btn btn-outline" id="hero-contact-btn">
+          <i class="fas fa-phone-alt"></i>
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats" id="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="5000">0</div>
+        <div class="hero-stat-label">Happy Tourists</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="15">0</div>
+        <div class="hero-stat-label">Tour Packages</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="10">0</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" id="hero-scroll">
+      <span>Scroll Down</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper reveal-left" id="about-image-wrapper">
+          <div class="about-experience-badge">
+            <span class="number">10+</span>
+            <span class="label">Years of Experience</span>
+          </div>
+          <div class="about-image-main">
+            <img src="images/varanasi-aerial.png" alt="Varanasi Aerial View">
+          </div>
+          <div class="about-image-float">
+            <img src="images/boat-ride.png" alt="Boat Ride on Ganges" style="height:160px;object-fit:cover">
+          </div>
+        </div>
+
+        <div class="about-content reveal-right" id="about-content">
+          <div class="about-title-group">
+            <span class="section-subtitle">About Us</span>
+            <h2 class="section-title">Your Trusted Travel Partner in the Holy City of Kashi</h2>
+            <div class="section-divider" style="margin-left:0"></div>
+          </div>
+          <p class="about-text">
+            Welcome to <strong>Jai Kashi Tours & Travels</strong> — Varanasi's premier tour operator, founded and managed by <strong>Shyamakant Pandey</strong>. Born and raised in the sacred city of Kashi, we bring unmatched local expertise and genuine hospitality to every tour.
+          </p>
+          <p class="about-text">
+            From the mesmerizing Ganga Aarti to the ancient lanes of Vishwanath Gali, from sunrise boat rides to the Buddhist heritage of Sarnath — we curate unforgettable experiences that connect you with the spiritual essence of Varanasi.
+          </p>
+
+          <div class="about-features" id="about-features">
+            <div class="about-feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Licensed & Verified</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-language"></i>
+              <span>Multilingual Guides</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-rupee-sign"></i>
+              <span>Best Price Guarantee</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-headset"></i>
+              <span>24/7 Support</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-car"></i>
+              <span>AC Vehicle Fleet</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-hotel"></i>
+              <span>Hotel Bookings</span>
+            </div>
+          </div>
+
+          <div class="about-owner" id="about-owner">
+            <div class="about-owner-avatar">SP</div>
+            <div class="about-owner-info">
+              <div class="name">Shyamakant Pandey</div>
+              <div class="role">Founder & Managing Director</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COUNTER SECTION ===== -->
+  <div class="counter-section" id="counter-section">
+    <div class="container">
+      <div class="counter-grid">
+        <div class="counter-item reveal" id="counter-tourists">
+          <div class="counter-icon"><i class="fas fa-users"></i></div>
+          <div class="counter-number" data-target="5000">0</div>
+          <div class="counter-label">Happy Tourists</div>
+        </div>
+        <div class="counter-item reveal" id="counter-packages">
+          <div class="counter-icon"><i class="fas fa-suitcase-rolling"></i></div>
+          <div class="counter-number" data-target="15">0</div>
+          <div class="counter-label">Tour Packages</div>
+        </div>
+        <div class="counter-item reveal" id="counter-destinations">
+          <div class="counter-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="counter-number" data-target="25">0</div>
+          <div class="counter-label">Destinations</div>
+        </div>
+        <div class="counter-item reveal" id="counter-rating">
+          <div class="counter-icon"><i class="fas fa-star"></i></div>
+          <div class="counter-number" data-target="4.9" data-decimal="true">0</div>
+          <div class="counter-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="services section-padding" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Our Services</span>
+        <h2 class="section-title">What We Offer</h2>
+        <p class="section-desc">From spiritual tours to luxury travel arrangements, we provide end-to-end travel solutions tailored to your needs.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="services-grid perspective-container">
+        <div class="service-card glass-card tilt-card reveal" id="service-spiritual">
+          <div class="service-icon"><i class="fas fa-om"></i></div>
+          <h3>Spiritual Tours</h3>
+          <p>Visit the most sacred temples, experience the divine Ganga Aarti, and explore the spiritual heritage of Kashi with expert local guides.</p>
+        </div>
+        <div class="service-card glass-card tilt-card reveal" id="service-heritage">
+          <div class="service-icon"><i class="fas fa-landmark"></i></div>
+          <h3>Heritage Walks</h3>
+          <p>Walk through the ancient galis (lanes) of Varanasi, discover hidden temples, centuries-old traditions, and the city's living heritage.</p>
+        </div>
+        <div class="service-card glass-card tilt-card reveal" id="service-boat">
+          <div class="service-icon"><i class="fas fa-ship"></i></div>
+          <h3>Boat Rides</h3>
+          <p>Experience magical sunrise and sunset boat rides on the holy Ganges with panoramic views of the 84+ ghats and the city skyline.</p>
+        </div>
+        <div class="service-card glass-card tilt-card reveal" id="service-transport">
+          <div class="service-icon"><i class="fas fa-car-side"></i></div>
+          <h3>Vehicle Rental</h3>
+          <p>AC cars, SUVs, and tempo travellers available for city tours, airport transfers, and outstation trips. Clean, comfortable, and reliable.</p>
+        </div>
+        <div class="service-card glass-card tilt-card reveal" id="service-hotel">
+          <div class="service-icon"><i class="fas fa-hotel"></i></div>
+          <h3>Hotel Booking</h3>
+          <p>From riverside heritage hotels to budget-friendly stays near the ghats, we help you find the perfect accommodation in Varanasi.</p>
+        </div>
+        <div class="service-card glass-card tilt-card reveal" id="service-custom">
+          <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Custom Packages</h3>
+          <p>Can't find what you're looking for? We create personalized tour itineraries tailored to your interests, budget, and schedule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR VEHICLE FLEET SECTION ===== -->
+  <section class="fleet section-padding" id="fleet">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Our Transport Fleet</span>
+        <h2 class="section-title">Travel in Comfort & Style</h2>
+        <p class="section-desc">We offer a wide range of luxury cars, MUVs, and Tempo Travellers driven by experienced, local, and professional drivers.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="fleet-grid perspective-container">
+        <!-- Vehicle 1 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-innova">
+          <div class="fleet-image">
+            <img src="images/boat-ride.png" alt="Toyota Innova Crysta" style="opacity: 0.2; filter: blur(5px);">
+            <!-- Icon layout over image for high visual appeal -->
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-car-side" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Premium Luxury</span>
+            </div>
+            <span class="fleet-badge">Top Choice</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">MUV / SUV</span>
+            <h3>Toyota Innova Crysta</h3>
+            <p class="description">The gold standard for tourist comfort in India. Spacious legroom, luxury captain seats, powerful dual AC, and smooth riding.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 6-7 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> Dual AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-briefcase"></i> 4 Bags</div>
+              <div class="fleet-feature-item"><i class="fas fa-couch"></i> Captain Seats</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%20Toyota%20Innova%20Crysta." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 2 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-tempo-18">
+          <div class="fleet-image">
+            <img src="images/varanasi-streets.png" alt="Tempo Traveller" style="opacity: 0.2; filter: blur(5px);">
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-bus" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Family & Groups</span>
+            </div>
+            <span class="fleet-badge" style="background: var(--accent);">Most Popular</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">Luxury Coach</span>
+            <h3>Tempo Traveller (18 Seater)</h3>
+            <p class="description">Perfect for medium groups and extended family tours. Features comfortable pushback seating, high headroom, and a music system.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 18 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> High Power AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-briefcase"></i> Large Boot</div>
+              <div class="fleet-feature-item"><i class="fas fa-tv"></i> LED Screen</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%2018%20Seater%20Tempo%20Traveller." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 3 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-tempo-26">
+          <div class="fleet-image">
+            <img src="images/varanasi-hero.png" alt="Tempo Traveller Large" style="opacity: 0.2; filter: blur(5px);">
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-shuttle-van" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Large Groups</span>
+            </div>
+            <span class="fleet-badge">Heavy Capacity</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">Super Coach</span>
+            <h3>Tempo Traveller (26 Seater)</h3>
+            <p class="description">Ideal for massive pilgrim tours or corporate group visits. Offers optimal space, individual reading lights, and pushback seats.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 26 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> Dual blower AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-briefcase"></i> Roof Carrier</div>
+              <div class="fleet-feature-item"><i class="fas fa-music"></i> USB Ports</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%2026%20Seater%20Tempo%20Traveller." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 4 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-dzire">
+          <div class="fleet-image">
+            <img src="images/kashi-vishwanath.png" alt="Swift Dzire" style="opacity: 0.2; filter: blur(5px);">
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-taxi" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Compact Travel</span>
+            </div>
+            <span class="fleet-badge">Economic</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">Sedan</span>
+            <h3>Swift Dzire / Toyota Etios</h3>
+            <p class="description">Clean, fuel-efficient sedan. The perfect option for airport pick-up/drop-off, couples, and swift local temple runs.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 4 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> Fully AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-briefcase"></i> 2 Bags</div>
+              <div class="fleet-feature-item"><i class="fas fa-shield-alt"></i> Safe & Compact</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%20Sedan%20(Dzire/Etios)." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 5 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-ertiga">
+          <div class="fleet-image">
+            <img src="images/subah-e-banaras.png" alt="Maruti Ertiga" style="opacity: 0.2; filter: blur(5px);">
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-car" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Budget Family</span>
+            </div>
+            <span class="fleet-badge">Best Value</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">MUV</span>
+            <h3>Maruti Suzuki Ertiga</h3>
+            <p class="description">Smart hybrid engine, compact yet comfortable 3-row seating. Best value for small families looking for budgeted transit.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 6 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> Dual AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-briefcase"></i> 3 Bags</div>
+              <div class="fleet-feature-item"><i class="fas fa-gas-pump"></i> Smart Hybrid</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%20Maruti%20Ertiga." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 6 -->
+        <div class="fleet-card tilt-card reveal" id="vehicle-coach">
+          <div class="fleet-image">
+            <img src="images/sarnath.png" alt="Luxury Tourist Bus" style="opacity: 0.2; filter: blur(5px);">
+            <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+              <i class="fas fa-bus-alt" style="font-size: 4.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+              <span style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Mass Group Tours</span>
+            </div>
+            <span class="fleet-badge">Large Coach</span>
+          </div>
+          <div class="fleet-content">
+            <span class="type">Luxury Bus</span>
+            <h3>Premium Tourist Coach</h3>
+            <p class="description">Large-scale travel coaches ideal for big tour groups or pilgrimages across India. Very comfortable seats and ample luggage bays.</p>
+            <div class="fleet-features">
+              <div class="fleet-feature-item"><i class="fas fa-users"></i> 40-52 Seater</div>
+              <div class="fleet-feature-item"><i class="fas fa-snowflake"></i> Central AC</div>
+              <div class="fleet-feature-item"><i class="fas fa-luggage-cart"></i> Huge Cargo</div>
+              <div class="fleet-feature-item"><i class="fas fa-microphone"></i> Guide Mike</div>
+            </div>
+            <div class="fleet-footer">
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20want%20to%20enquire%20about%20booking%20a%20Luxury%20Tourist%20Coach." 
+                 class="btn btn-primary fleet-book-btn" target="_blank">Book Vehicle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOUR PACKAGES SECTION ===== -->
+  <section class="packages section-padding" id="packages">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Tour Packages</span>
+        <h2 class="section-title">Popular Tour Packages</h2>
+        <p class="section-desc">Handcrafted itineraries designed to give you the most authentic Varanasi experience.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="packages-grid perspective-container">
+        <!-- Package 1 -->
+        <div class="package-card tilt-card reveal" id="package-spiritual">
+          <div class="package-image">
+            <img src="images/ganga-aarti.png" alt="Spiritual Varanasi Tour">
+            <span class="package-badge">Most Popular</span>
+          </div>
+          <div class="package-content">
+            <h3>Complete Spiritual Varanasi</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Varanasi, Uttar Pradesh</div>
+            <p class="description">A complete spiritual journey covering Kashi Vishwanath Temple, Ganga Aarti, sunrise boat ride, and all major ghats.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> 2 Days</span>
+              <span class="package-feature-tag"><i class="fas fa-utensils"></i> Meals</span>
+              <span class="package-feature-tag"><i class="fas fa-ship"></i> Boat Ride</span>
+              <span class="package-feature-tag"><i class="fas fa-car"></i> AC Transport</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I'm%20interested%20in%20the%20Complete%20Spiritual%20Varanasi%20package." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-spiritual">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card tilt-card reveal" id="package-sarnath">
+          <div class="package-image">
+            <img src="images/sarnath.png" alt="Sarnath Buddhist Tour">
+            <span class="package-badge">Best Value</span>
+          </div>
+          <div class="package-content">
+            <h3>Sarnath Buddhist Heritage</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Sarnath, Varanasi</div>
+            <p class="description">Explore where Lord Buddha gave his first sermon. Visit Dhamek Stupa, Ashoka Pillar, Sarnath Museum, and ancient monasteries.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> 1 Day</span>
+              <span class="package-feature-tag"><i class="fas fa-utensils"></i> Lunch</span>
+              <span class="package-feature-tag"><i class="fas fa-camera"></i> Guide</span>
+              <span class="package-feature-tag"><i class="fas fa-car"></i> AC Transport</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>(4.7)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I%20m%20interested%20in%20the%20Sarnath%20Buddhist%20Heritage%20package." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-sarnath">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card tilt-card reveal" id="package-premium">
+          <div class="package-image">
+            <img src="images/boat-ride.png" alt="Premium Kashi Experience">
+            <span class="package-badge" style="background:var(--primary);color:var(--dark)">Premium</span>
+          </div>
+          <div class="package-content">
+            <h3>Premium Kashi Experience</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Varanasi & Surroundings</div>
+            <p class="description">The ultimate luxury Varanasi experience — private boat, premium hotel, temple VIP darshan, Sarnath, silk weaving tour, and more.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> 3 Days</span>
+              <span class="package-feature-tag"><i class="fas fa-hotel"></i> 5-Star Stay</span>
+              <span class="package-feature-tag"><i class="fas fa-ship"></i> Private Boat</span>
+              <span class="package-feature-tag"><i class="fas fa-car"></i> Luxury Car</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I'm%20interested%20in%20the%20Premium%20Kashi%20Experience%20package." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-premium">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="package-card tilt-card reveal" id="package-food">
+          <div class="package-image">
+            <img src="images/banarasi-food.png" alt="Banarasi Food Tour">
+            <span class="package-badge">Tasty!</span>
+          </div>
+          <div class="package-content">
+            <h3>Banarasi Food Trail</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Old City, Varanasi</div>
+            <p class="description">Taste the authentic flavours of Banaras — Kachori-Sabzi, Lassi, Chaat, Banarasi Paan, Malaiyo & more with a local foodie guide.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> Half Day</span>
+              <span class="package-feature-tag"><i class="fas fa-utensils"></i> 8+ Tastings</span>
+              <span class="package-feature-tag"><i class="fas fa-walking"></i> Walking</span>
+              <span class="package-feature-tag"><i class="fas fa-camera"></i> Photo Ops</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I'm%20interested%20in%20the%20Banarasi%20Food%20Trail%20tour." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-food">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 5 -->
+        <div class="package-card tilt-card reveal" id="package-morning">
+          <div class="package-image">
+            <img src="images/subah-e-banaras.png" alt="Subah-e-Banaras Morning Tour">
+            <span class="package-badge">Must Do!</span>
+          </div>
+          <div class="package-content">
+            <h3>Subah-e-Banaras</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Assi Ghat to Manikarnika</div>
+            <p class="description">Experience the magical Varanasi morning — sunrise boat ride, yoga at the ghats, temple visits, and the awakening of the holy city.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> 4 Hours</span>
+              <span class="package-feature-tag"><i class="fas fa-ship"></i> Boat Ride</span>
+              <span class="package-feature-tag"><i class="fas fa-pray"></i> Yoga</span>
+              <span class="package-feature-tag"><i class="fas fa-coffee"></i> Chai</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I'm%20interested%20in%20the%20Subah-e-Banaras%20morning%20tour." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-morning">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 6 -->
+        <div class="package-card tilt-card reveal" id="package-streets">
+          <div class="package-image">
+            <img src="images/varanasi-streets.png" alt="Varanasi Heritage Walk">
+            <span class="package-badge">Cultural</span>
+          </div>
+          <div class="package-content">
+            <h3>Old City Heritage Walk</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> Old Varanasi Lanes</div>
+            <p class="description">Wander through Varanasi's ancient narrow lanes — visit silk weavers, hidden temples, traditional akhadas, and the famous Vishwanath Gali.</p>
+            <div class="package-features">
+              <span class="package-feature-tag"><i class="fas fa-clock"></i> 3 Hours</span>
+              <span class="package-feature-tag"><i class="fas fa-walking"></i> Walking</span>
+              <span class="package-feature-tag"><i class="fas fa-camera"></i> Photo Guide</span>
+              <span class="package-feature-tag"><i class="fas fa-history"></i> History</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>(4.6)</span>
+              </div>
+              <a href="https://wa.me/919653028323?text=Hi!%20I'm%20interested%20in%20the%20Old%20City%20Heritage%20Walk%20tour." 
+                 class="btn btn-primary package-book-btn" target="_blank" id="book-heritage">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section class="gallery section-padding" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Gallery</span>
+        <h2 class="section-title">Captured Moments of Kashi</h2>
+        <p class="section-desc">Glimpses of the magical experiences our guests have had in the holy city of Varanasi.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gallery-grid perspective-container" id="gallery-grid">
+        <div class="gallery-item reveal" id="gallery-1">
+          <img src="images/varanasi-hero.png" alt="Varanasi Ghats Sunrise">
+          <div class="gallery-overlay">
+            <h4>Golden Ghats at Sunrise</h4>
+            <p>The iconic Varanasi ghats bathed in golden light</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-2">
+          <img src="images/ganga-aarti.png" alt="Ganga Aarti">
+          <div class="gallery-overlay">
+            <h4>Evening Ganga Aarti</h4>
+            <p>The spectacular fire ceremony at Dashashwamedh Ghat</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-3">
+          <img src="images/kashi-vishwanath.png" alt="Kashi Vishwanath">
+          <div class="gallery-overlay">
+            <h4>Kashi Vishwanath Temple</h4>
+            <p>The magnificent golden temple of Lord Shiva</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-4">
+          <img src="images/boat-ride.png" alt="Boat Ride">
+          <div class="gallery-overlay">
+            <h4>Ganges Boat Ride</h4>
+            <p>Serene morning on the holy river</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-5">
+          <img src="images/sarnath.png" alt="Sarnath">
+          <div class="gallery-overlay">
+            <h4>Sarnath Heritage</h4>
+            <p>Ancient Buddhist heritage site</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-6">
+          <img src="images/varanasi-streets.png" alt="Varanasi Streets">
+          <div class="gallery-overlay">
+            <h4>Ancient Lanes</h4>
+            <p>The colorful galis of old Varanasi</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal" id="gallery-7">
+          <img src="images/subah-e-banaras.png" alt="Morning Varanasi">
+          <div class="gallery-overlay">
+            <h4>Subah-e-Banaras</h4>
+            <p>The magical morning awakening</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR DESTINATIONS ===== -->
+  <section class="destinations section-padding" id="destinations">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Explore</span>
+        <h2 class="section-title">Popular Destinations</h2>
+        <p class="section-desc">Must-visit places in and around Varanasi that we cover in our tour packages.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="destinations-grid perspective-container">
+        <div class="destination-card reveal" id="dest-ghats">
+          <img src="images/varanasi-hero.png" alt="Varanasi Ghats">
+          <div class="destination-overlay">
+            <span class="destination-tag">Iconic</span>
+            <h3>The Sacred Ghats</h3>
+            <p>84+ ghats along the Ganges — Dashashwamedh, Assi, Manikarnika, and more. Each has its own story and spiritual significance.</p>
+            <a href="https://en.wikipedia.org/wiki/Ghats_in_Varanasi" class="destination-link" target="_blank">
+              Explore Now <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="destination-card reveal" id="dest-temple">
+          <img src="images/kashi-vishwanath.png" alt="Kashi Vishwanath">
+          <div class="destination-overlay">
+            <span class="destination-tag">Sacred</span>
+            <h3>Kashi Vishwanath Temple</h3>
+            <p>One of the 12 Jyotirlingas, the Kashi Vishwanath Temple is the spiritual heart of Varanasi, dedicated to Lord Shiva.</p>
+            <a href="https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple" class="destination-link" target="_blank">
+              Explore Now <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="destination-card reveal" id="dest-sarnath">
+          <img src="images/sarnath.png" alt="Sarnath">
+          <div class="destination-overlay">
+            <span class="destination-tag">Heritage</span>
+            <h3>Sarnath</h3>
+            <p>Where Lord Buddha gave his first sermon after enlightenment. Home to Dhamek Stupa, Ashoka Pillar, and ancient monasteries.</p>
+            <a href="https://en.wikipedia.org/wiki/Sarnath" class="destination-link" target="_blank">
+              Explore Now <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="why-us section-padding" id="why-us">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Why Us</span>
+        <h2 class="section-title">Why Choose Jai Kashi Tours?</h2>
+        <p class="section-desc">We are not just a travel agency — we are your local family in Varanasi.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="why-us-grid perspective-container">
+        <div class="why-us-card glass-card reveal" id="why-local">
+          <div class="why-us-icon"><i class="fas fa-map-pin"></i></div>
+          <h3>Local Expertise</h3>
+          <p>Born and raised in Varanasi, we know every ghat, lane, and hidden gem of Kashi.</p>
+        </div>
+        <div class="why-us-card glass-card reveal" id="why-safe">
+          <div class="why-us-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Safe & Reliable</h3>
+          <p>Government registered, fully insured vehicles, and verified professional guides.</p>
+        </div>
+        <div class="why-us-card glass-card reveal" id="why-price">
+          <div class="why-us-icon"><i class="fas fa-tags"></i></div>
+          <h3>Best Prices</h3>
+          <p>Direct operator — no middlemen. Transparent pricing with no hidden charges.</p>
+        </div>
+        <div class="why-us-card glass-card reveal" id="why-custom">
+          <div class="why-us-icon"><i class="fas fa-heart"></i></div>
+          <h3>Personalized Care</h3>
+          <p>Every tour is customized to your preferences. We treat you like family, not tourists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Testimonials</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-desc">Real reviews from real travellers who experienced the magic of Kashi with us.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="testimonials-slider" id="testimonials-slider">
+        <div class="testimonial-card glass-card reveal" id="testimonial-1">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            An absolutely incredible experience! Shyamakant ji arranged everything perfectly — from the early morning boat ride to the evening Ganga Aarti. His knowledge of Varanasi's history is remarkable. Highly recommended!
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RP</div>
+            <div class="testimonial-author-info">
+              <div class="name">Rajesh Patel</div>
+              <div class="from">Mumbai, Maharashtra</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card reveal" id="testimonial-2">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            Best tour operator in Varanasi! We visited from Germany and Pandey ji made us feel at home. The food tour was a highlight — we tried things we never knew existed. Will definitely come back!
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div class="testimonial-author-info">
+              <div class="name">Sarah Mueller</div>
+              <div class="from">Berlin, Germany</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card reveal" id="testimonial-3">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            I've been to Varanasi many times, but this was my first guided tour and it changed my perspective completely. The heritage walk through the old city lanes was unforgettable. Thank you, Jai Kashi Tours!
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AK</div>
+            <div class="testimonial-author-info">
+              <div class="name">Ananya Krishnan</div>
+              <div class="from">Chennai, Tamil Nadu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section" id="cta-section">
+    <div class="cta-bg">
+      <img src="images/varanasi-aerial.png" alt="Varanasi Panoramic">
+      <div class="cta-bg-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <span class="section-subtitle">Ready for an Adventure?</span>
+        <h2>Book Your Divine Kashi Tour Today</h2>
+        <p>Don't just visit Varanasi — experience it. Let us create memories that will last a lifetime. Call or WhatsApp us now!</p>
+        <div class="cta-buttons">
+          <a href="tel:+919653028323" class="btn btn-primary" id="cta-call-btn">
+            <i class="fas fa-phone-alt"></i>
+            Call Now
+          </a>
+          <a href="https://wa.me/919653028323?text=Hello!%20I%20want%20to%20book%20a%20tour%20in%20Varanasi." 
+             class="btn btn-whatsapp" target="_blank" id="cta-whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact section-padding" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Plan Your Dream Trip</span>
+        <h2 class="section-title">Tour Package Planner</h2>
+        <p class="section-desc">Create a customized tour package tailored to your preferences. Let us know the details, and we will send you a personalized plan via WhatsApp!</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card glass-card reveal-left" id="contact-info">
+          <h3>Direct Contact</h3>
+          <p>Reach out to us directly or use the planner form to design your customized package across India.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail" id="contact-owner-detail">
+              <div class="contact-detail-icon"><i class="fas fa-user"></i></div>
+              <div class="contact-detail-text">
+                <h4>Owner</h4>
+                <p>Shyamakant Pandey</p>
+              </div>
+            </div>
+            <div class="contact-detail" id="contact-phone-detail">
+              <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="contact-detail-text">
+                <h4>Phone / WhatsApp</h4>
+                <a href="tel:+919653028323">+91 96530 28323</a>
+              </div>
+            </div>
+            <div class="contact-detail" id="contact-location-detail">
+              <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-detail-text">
+                <h4>Location</h4>
+                <p>Varanasi (Kashi), Uttar Pradesh, India</p>
+              </div>
+            </div>
+            <div class="contact-detail" id="contact-hours-detail">
+              <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+              <div class="contact-detail-text">
+                <h4>Working Hours</h4>
+                <p>Open 24/7 — We're always available for you</p>
+              </div>
+            </div>
+            <div class="contact-detail" id="contact-email-detail">
+              <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-detail-text">
+                <h4>Email</h4>
+                <a href="mailto:jaikashitours@gmail.com">jaikashitours@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social" id="contact-social">
+            <a href="https://wa.me/919653028323" target="_blank" title="WhatsApp" id="social-whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+919653028323" title="Call Us" id="social-phone"><i class="fas fa-phone-alt"></i></a>
+            <a href="#" title="Facebook" id="social-facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram" id="social-instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="YouTube" id="social-youtube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-card glass-card reveal-right" id="contact-form-card">
+          <h3>Build Your Tour Package</h3>
+          <form id="contact-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" name="name" placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="form-phone">Phone Number</label>
+                <input type="tel" id="form-phone" name="phone" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email Address</label>
+              <input type="email" id="form-email" name="email" placeholder="your@email.com">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-date">Travel Date</label>
+                <input type="date" id="form-date" name="date">
+              </div>
+              <div class="form-group">
+                <label for="form-guests">Number of Guests</label>
+                <select id="form-guests" name="guests">
+                  <option value="">Select</option>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 Persons</option>
+                  <option value="3-5">3-5 Persons</option>
+                  <option value="6-10">6-10 Persons</option>
+                  <option value="10+">10+ (Group)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="form-message">Your Message</label>
+              <textarea id="form-message" name="message" placeholder="Tell us about your travel plans, interests, or any special requirements..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="form-submit-btn" style="width:100%;justify-content:center;">
+              <i class="fas fa-paper-plane"></i>
+              Send Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand" id="footer-brand">
+          <a href="#home" class="nav-logo">
+            <div class="nav-logo-icon">🕉</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Jai Kashi</span>
+              <span class="nav-logo-tagline">Tours & Travels</span>
+            </div>
+          </a>
+          <p>Your trusted travel companion in the holy city of Varanasi. We bring the spiritual essence of Kashi to life through unforgettable tour experiences.</p>
+          <div class="contact-social">
+            <a href="https://wa.me/919653028323" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+919653028323" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column" id="footer-quick-links">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#packages">Tour Packages</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-column" id="footer-tours">
+          <h4>Popular Tours</h4>
+          <div class="footer-links">
+            <a href="#packages">Spiritual Varanasi</a>
+            <a href="#packages">Sarnath Heritage</a>
+            <a href="#packages">Boat Ride Tours</a>
+            <a href="#packages">Food Trail</a>
+            <a href="#packages">Heritage Walk</a>
+            <a href="#packages">Custom Packages</a>
+          </div>
+        </div>
+
+        <div class="footer-column footer-newsletter" id="footer-newsletter">
+          <h4>Stay Connected</h4>
+          <p>Get travel tips, special offers, and updates about Varanasi festivals directly in your inbox.</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="Your email" required id="newsletter-email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom" id="footer-bottom">
+        <p>&copy; 2024 Jai Kashi Tours & Travels. All Rights Reserved. | Varanasi, India</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+  <a href="https://wa.me/919653028323?text=Hello!%20I'm%20interested%20in%20Varanasi%20tours." 
+     class="whatsapp-float" target="_blank" title="Chat on WhatsApp" id="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="back-to-top" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+    <img src="" alt="Gallery Image" id="lightbox-img">
+  </div>
+
+  <script src="destinations-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
