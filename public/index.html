@@ -115,8 +115,8 @@
         <h2 style="margin-bottom: 20px; font-size: 1.5rem; color: var(--text);">Welcome Back</h2>
         <form id="login-form" onsubmit="handleLogin(event)">
           <div class="form-group" style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px; color: var(--text-secondary); font-size: 0.9rem;">Email or User ID</label>
-            <input type="text" id="login-id" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: var(--text);">
+            <label style="display: block; margin-bottom: 5px; color: var(--text-secondary); font-size: 0.9rem;">Email or Username</label>
+            <input type="text" id="login-id" required autocomplete="username email" autocapitalize="none" autocorrect="off" placeholder="admin@jaikashitours.com" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: var(--text);">
           </div>
           <div class="form-group" style="margin-bottom: 20px;">
             <label style="display: block; margin-bottom: 5px; color: var(--text-secondary); font-size: 0.9rem;">Password</label>
@@ -1134,6 +1134,7 @@
     <img src="" alt="Gallery Image" id="lightbox-img">
   </div>
 
+  <script src="api-config.js"></script>
   <script src="destinations-data.js"></script>
   <script src="script.js"></script>
 </body>

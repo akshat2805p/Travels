@@ -47,21 +47,35 @@ const requireAdmin = (req, res, next) => {
 // ========================
 app.post('/api/auth/register', (req, res) => {
   const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "All fields (name, email, password) are required." });
+  }
+  const cleanEmail = email.trim().toLowerCase();
   const hash = bcrypt.hashSync(password, 10);
-      db.run("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name, email, hash], function(err) {
-        if (err) return res.status(400).json({ error: "Email already exists" });
-        logActivity(this.lastID, 'REGISTER', 'User created an account.');
-        res.json({ message: "Registration successful! Please login." });
-      });
+  db.run("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name.trim(), cleanEmail, hash], function(err) {
+    if (err) return res.status(400).json({ error: "Email already exists" });
+    logActivity(this.lastID, 'REGISTER', 'User created an account.');
+    const token = jwt.sign({ id: this.lastID, role: 'user' }, JWT_SECRET, { expiresIn: '1d' });
+    res.json({
+      message: "Registration successful!",
+      token,
+      user: { id: this.lastID, name: name.trim(), email: cleanEmail, role: 'user', balance: 0 }
+    });
+  });
 });
 
 app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
-  db.get("SELECT * FROM users WHERE email = ?", [email], (err, user) => {
-    if (err || !user) return res.status(401).json({ error: "Invalid email or password." });
-    
+  if (!email || !password) {
+    return res.status(400).json({ error: "Email and password are required." });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+  db.get("SELECT * FROM users WHERE LOWER(email) = ? OR LOWER(name) = ?", [cleanEmail, cleanEmail], (err, user) => {
+    if (err || !user) return res.status(401).json({ error: "Invalid email/username or password." });
+
     bcrypt.compare(password, user.password, (err, isMatch) => {
-      if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
+      if (err || !isMatch) return res.status(401).json({ error: "Invalid email/username or password." });
       const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1d' });
       logActivity(user.id, 'LOGIN', 'User logged in.');
       res.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role, balance: user.balance } });
@@ -121,7 +135,7 @@ app.post('/api/user/book', authenticate, (req, res) => {
       
       db.run("INSERT INTO bookings (user_id, package_name, price, date) VALUES (?, ?, ?, ?)", [req.user.id, package_name, price, date], function(err) {
         db.run("INSERT INTO finances (type, amount, description) VALUES (?, ?, ?)", ['income', price, `Booking Payment: ${package_name}`]);
-        logActivity(req.userId, 'BOOKING', `Booked ${package_name} for ₹${price}`);
+        logActivity(req.user.id, 'BOOKING', `Booked ${package_name} for ₹${price}`);
         res.json({ success: true, booking_id: this.lastID });
       });
     });
@@ -199,6 +213,11 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+

@@ -1,8 +1,23 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 const bcrypt = require('bcryptjs');
 
-const dbPath = path.join(__dirname, 'database.sqlite');
+let dbPath;
+if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  dbPath = '/tmp/database.sqlite';
+  const sourceDb = path.join(__dirname, 'database.sqlite');
+  if (!fs.existsSync(dbPath) && fs.existsSync(sourceDb)) {
+    try {
+      fs.copyFileSync(sourceDb, dbPath);
+    } catch (e) {
+      console.error("Could not copy base database to /tmp:", e);
+    }
+  }
+} else {
+  dbPath = path.join(__dirname, 'database.sqlite');
+}
+
 const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
@@ -48,10 +63,9 @@ db.serialize(() => {
   )`);
 
   // Create default admin user if not exists
-  db.get("SELECT id FROM users WHERE email = 'admin@jaikashitours.com'", (err, row) => {
+  db.get("SELECT id FROM users WHERE LOWER(email) = 'admin@jaikashitours.com'", (err, row) => {
     if (!row) {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync('admin123', salt);
+      const hash = bcrypt.hashSync('admin123', 10);
       db.run("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)", 
         ['Admin', 'admin@jaikashitours.com', hash, 'admin']);
       console.log("Admin user created: admin@jaikashitours.com / admin123");
@@ -60,3 +74,4 @@ db.serialize(() => {
 });
 
 module.exports = db;
+

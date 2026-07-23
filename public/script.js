@@ -109,11 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.handleLogin = async function(e) {
     e.preventDefault();
-    const email = document.getElementById('login-id').value;
-    const password = document.getElementById('login-password')?.value || 'password123';
+    const loginIdEl = document.getElementById('login-id');
+    const passwordEl = document.getElementById('login-password');
+    const email = loginIdEl ? loginIdEl.value.trim() : '';
+    const password = passwordEl ? passwordEl.value : '';
+
+    if (!email || !password) return alert('Please enter both email/username and password.');
     
     try {
-      const res = await fetch('http://localhost:5500/api/auth/login', {
+      const res = await fetch(getApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -121,26 +125,35 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (data.error) return alert(data.error);
 
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      if (data.token && data.user) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+      }
       alert('Logged in successfully!');
       closeLoginModal();
       updateAuthUI();
       // Redirect straight to the unified dashboard
       window.location.href = 'dashboard.html';
     } catch(err) {
-      alert('Login failed. Server error.');
+      console.error('Login error:', err);
+      alert('Login failed. Unable to connect to server. Please check your internet connection.');
     }
   };
 
   window.handleRegister = async function(e) {
     e.preventDefault();
-    const name = document.getElementById('reg-name').value;
-    const email = document.getElementById('reg-email').value;
-    const password = document.getElementById('reg-password')?.value || 'password123';
+    const nameEl = document.getElementById('reg-name');
+    const emailEl = document.getElementById('reg-email');
+    const passwordEl = document.getElementById('reg-password');
+    
+    const name = nameEl ? nameEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const password = passwordEl ? passwordEl.value : '';
+
+    if (!name || !email || !password) return alert('Please fill in all required fields.');
 
     try {
-      const res = await fetch('http://localhost:5500/api/auth/register', {
+      const res = await fetch(getApiUrl('/api/auth/register'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })
@@ -148,13 +161,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (data.error) return alert(data.error);
 
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      alert('Registered and logged in successfully!');
+      if (data.token && data.user) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+      }
+      alert(data.message || 'Registered and logged in successfully!');
       closeLoginModal();
       updateAuthUI();
+      if (data.token) {
+        window.location.href = 'dashboard.html';
+      }
     } catch(err) {
-      alert('Registration failed. Server error.');
+      console.error('Registration error:', err);
+      alert('Registration failed. Unable to connect to server.');
     }
   };
 

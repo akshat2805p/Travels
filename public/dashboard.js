@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Populate profile
     try {
-      const res = await fetch('http://localhost:5500/api/user/me', {
+      const res = await fetch(getApiUrl('/api/user/me'), {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const me = await res.json();
@@ -82,7 +82,7 @@ window.handleLogout = function () {
 async function fetchBookings() {
   const token = localStorage.getItem('token');
   try {
-    const bRes = await fetch('http://localhost:5500/api/user/bookings', {
+    const bRes = await fetch(getApiUrl('/api/user/bookings'), {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const bookings = await bRes.json();
@@ -119,7 +119,7 @@ window.addFunds = async function () {
 
   const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5500/api/user/add_funds', {
+    const res = await fetch(getApiUrl('/api/user/add_funds'), {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -156,7 +156,7 @@ window.sendMessage = function () {
 async function fetchLogs() {
   const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5500/api/admin/logs', {
+    const res = await fetch(getApiUrl('/api/admin/logs'), {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const logs = await res.json();
@@ -188,7 +188,7 @@ async function fetchLogs() {
 async function fetchUsers() {
   const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5500/api/admin/users', {
+    const res = await fetch(getApiUrl('/api/admin/users'), {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const users = await res.json();
@@ -216,7 +216,7 @@ window.deleteUser = async function (id) {
   if (!confirm("Are you sure you want to delete this user?")) return;
   const token = localStorage.getItem('token');
   try {
-    await fetch(`http://localhost:5500/api/admin/users/${id}`, {
+    await fetch(getApiUrl(`/api/admin/users/${id}`), {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -233,7 +233,7 @@ window.deleteUser = async function (id) {
 async function fetchFinances() {
   const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5500/api/admin/finance', {
+    const res = await fetch(getApiUrl('/api/admin/finance'), {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const finances = await res.json();
@@ -277,7 +277,7 @@ window.addTransaction = async function () {
 
   const token = localStorage.getItem('token');
   try {
-    await fetch('http://localhost:5500/api/admin/finance', {
+    await fetch(getApiUrl('/api/admin/finance'), {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -300,7 +300,7 @@ window.addTransaction = async function () {
 window.downloadBackup = async function () {
   const token = localStorage.getItem('token');
   try {
-    const res = await fetch('http://localhost:5500/api/admin/export', {
+    const res = await fetch(getApiUrl('/api/admin/export'), {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (!res.ok) throw new Error("Export failed");
@@ -350,7 +350,7 @@ window.searchLocation = async function (e) {
 
   try {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5500/api/user/track_search', {
+    fetch(getApiUrl('/api/user/track_search'), {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ location: query })
@@ -364,3 +364,4 @@ window.searchLocation = async function (e) {
     alert("Error searching location.");
   }
 };
+
