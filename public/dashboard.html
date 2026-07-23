@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard | Jai Kashi Tours</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ============================================
+       ReactBits-Inspired Premium Dashboard
+    ============================================ */
+
+    /* --- Animated Background Grid --- */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        radial-gradient(circle at 25% 25%, rgba(212,175,55,0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(196,91,55,0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- Blur Text Reveal (ReactBits style) --- */
+    .rb-blur-text {
+      display: inline-block;
+      filter: blur(12px);
+      opacity: 0;
+      animation: rbBlurReveal 0.8s ease forwards;
+    }
+    @keyframes rbBlurReveal {
+      0%   { filter: blur(12px); opacity: 0; transform: translateY(8px); }
+      100% { filter: blur(0px);  opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stagger delays for children */
+    .rb-blur-text:nth-child(1) { animation-delay: 0.1s; }
+    .rb-blur-text:nth-child(2) { animation-delay: 0.2s; }
+    .rb-blur-text:nth-child(3) { animation-delay: 0.3s; }
+    .rb-blur-text:nth-child(4) { animation-delay: 0.4s; }
+    .rb-blur-text:nth-child(5) { animation-delay: 0.5s; }
+
+    /* --- Animated Gradient Border (ReactBits) --- */
+    .rb-gradient-border {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .rb-gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, #d4af37, #c45b37, #d4af37, #c45b37);
+      background-size: 300% 300%;
+      animation: rbGradientShift 6s ease infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @keyframes rbGradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* --- Shimmer Sweep (ReactBits) --- */
+    .rb-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .rb-shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      animation: rbShimmer 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes rbShimmer {
+      0%   { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    /* --- Fade Up (ReactBits fade-content) --- */
+    .rb-fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rbFadeUp 0.6s ease forwards;
+    }
+    @keyframes rbFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Pulse Glow Ring --- */
+    .rb-pulse-ring {
+      position: relative;
+    }
+    .rb-pulse-ring::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.4);
+      animation: rbPulse 2s ease-in-out infinite;
+    }
+    @keyframes rbPulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.1); opacity: 0; }
+    }
+
+    /* --- Dashboard Layout --- */
+    .dashboard-container {
+      display: flex;
+      min-height: calc(100vh - 72px);
+      margin-top: 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      width: 260px;
+      background: rgba(8, 8, 10, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-right: 1px solid rgba(212,175,55,0.12);
+      padding: 32px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-user {
+      text-align: center;
+      padding: 0 24px 24px;
+      border-bottom: 1px solid rgba(212,175,55,0.1);
+      margin-bottom: 8px;
+    }
+    .sidebar-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #030304;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 0 20px rgba(212,175,55,0.25);
+    }
+    .sidebar-user h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: #f0ebd8;
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+    .sidebar-user p {
+      font-size: 0.75rem;
+      color: #6e695e;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px 0;
+      flex: 1;
+    }
+    .sidebar-link {
+      padding: 13px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #a39c89;
+      font-weight: 500;
+      font-size: 0.92rem;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+    .sidebar-link i {
+      width: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .sidebar-link:hover {
+      color: #d4af37;
+      background: rgba(212,175,55,0.06);
+      border-left-color: rgba(212,175,55,0.3);
+    }
+    .sidebar-link.active {
+      color: #d4af37;
+      background: rgba(212,175,55,0.1);
+      border-left-color: #d4af37;
+      font-weight: 600;
+    }
+    .sidebar-link.active::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 60%;
+      background: #d4af37;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* --- Main Content --- */
+    .dashboard-content {
+      flex: 1;
+      padding: 36px 40px;
+      background: #030304;
+      overflow-y: auto;
+    }
+
+    /* --- Panel Title --- */
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #d4af37;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .panel-title i {
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+    .panel-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.3), transparent);
+      margin-left: 16px;
+    }
+
+    /* --- Panels --- */
+    .dashboard-panel {
+      display: none;
+    }
+    .dashboard-panel.active {
+      display: block;
+      animation: rbFadeUp 0.5s ease forwards;
+    }
+
+    /* --- Cards --- */
+    .dashboard-card {
+      background: rgba(17, 17, 22, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .dashboard-card:hover {
+      border-color: rgba(212,175,55,0.25);
+      box-shadow: 0 12px 48px rgba(212,175,55,0.08), 0 0 0 1px rgba(212,175,55,0.1);
+      transform: translateY(-3px);
+    }
+
+    /* --- Stat Card --- */
+    .stat-card {
+      flex: 1;
+      min-width: 200px;
+      padding: 24px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .stat-card h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .stat-card i {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 1.8rem;
+      opacity: 0.15;
+    }
+    .stat-income  { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25); }
+    .stat-income  h4 { color: #25d366; }
+    .stat-income  h2 { color: #2ee573; }
+    .stat-expense { background: rgba(231,76,60,0.08); border: 1px solid rgba(231,76,60,0.25); }
+    .stat-expense h4 { color: #e74c3c; }
+    .stat-expense h2 { color: #f06050; }
+    .stat-profit  { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.25); }
+    .stat-profit  h4 { color: #d4af37; }
+    .stat-profit  h2 { color: #f5da7d; }
+
+    /* --- Profile Info --- */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .profile-item {
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.08);
+    }
+    .profile-item label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #6e695e;
+      margin-bottom: 6px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .profile-item span {
+      display: block;
+      font-size: 1.05rem;
+      color: #f0ebd8;
+      font-weight: 500;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* --- Table Styles --- */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    thead th {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #6e695e;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(212,175,55,0.1);
+      font-weight: 600;
+    }
+    tbody td {
+      padding: 14px 16px;
+      color: #a39c89;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      font-family: 'Outfit', sans-serif;
+    }
+    tbody tr {
+      transition: background 0.2s ease;
+    }
+    tbody tr:hover {
+      background: rgba(212,175,55,0.04);
+    }
+
+    /* --- Booking Item --- */
+    .booking-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: all 0.2s ease;
+    }
+    .booking-item:last-child { border-bottom: none; }
+    .booking-item:hover { padding-left: 8px; }
+
+    /* --- Input Styles --- */
+    .rb-input {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.15);
+      background: rgba(3,3,4,0.8);
+      color: #f0ebd8;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .rb-input:focus {
+      border-color: rgba(212,175,55,0.5);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+    }
+    .rb-input::placeholder {
+      color: #4a4640;
+    }
+
+    /* --- ReactBits Button --- */
+    .rb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .rb-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+    .rb-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .rb-btn:active {
+      transform: scale(0.97);
+    }
+    .rb-btn-gold {
+      background: linear-gradient(135deg, #d4af37, #aa8c2c);
+      color: #030304;
+      box-shadow: 0 4px 16px rgba(212,175,55,0.3);
+    }
+    .rb-btn-gold:hover {
+      box-shadow: 0 6px 24px rgba(212,175,55,0.45);
+      transform: translateY(-2px);
+    }
+    .rb-btn-outline {
+      background: transparent;
+      color: #d4af37;
+      border: 1.5px solid rgba(212,175,55,0.4);
+    }
+    .rb-btn-outline:hover {
+      background: rgba(212,175,55,0.1);
+      border-color: #d4af37;
+      transform: translateY(-2px);
+    }
+    .rb-btn-danger {
+      background: transparent;
+      color: #e74c3c;
+      border: 1.5px solid rgba(231,76,60,0.4);
+      font-size: 0.82rem;
+      padding: 8px 14px;
+    }
+    .rb-btn-danger:hover {
+      background: rgba(231,76,60,0.1);
+      border-color: #e74c3c;
+    }
+
+    /* --- Wallet Big Number --- */
+    .wallet-amount {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #d4af37, #f5da7d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    /* --- Empty State --- */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .empty-state i {
+      font-size: 3rem;
+      color: #3a3830;
+      margin-bottom: 16px;
+    }
+    .empty-state p {
+      color: #6e695e;
+      font-size: 0.95rem;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    /* --- Mobile --- */
+    @media (max-width: 768px) {
+      .dashboard-container { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(212,175,55,0.1);
+        padding: 16px 0;
+      }
+      .sidebar-user { display: none; }
+      .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 8px 4px;
+        gap: 0;
+      }
+      .sidebar-link {
+        padding: 10px 16px;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        justify-content: center;
+        border-left: none !important;
+        border-bottom: 3px solid transparent;
+        font-size: 0.85rem;
+        gap: 8px;
+      }
+      .sidebar-link.active {
+        border-left: none !important;
+        border-bottom-color: #d4af37;
+      }
+      .sidebar-link.active::after { display: none; }
+      .dashboard-content { padding: 20px 16px; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .wallet-amount { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Loader -->
+  <div id="global-loader">
+    <div class="blur-text">Jai Kashi Tours</div>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('global-loader');
+        if(loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.remove(), 500);
+        }
+      }, 300);
+    });
+    setTimeout(() => {
+      const loader = document.getElementById('global-loader');
+      if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 500);
+      }
+    }, 4000);
+  </script>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" style="background: rgba(3,3,4,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.1);">
+    <div class="container" style="justify-content: space-between; align-items: center;">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Jai Kashi Tours & Travels Logo" class="nav-logo-img">
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">India Travels</span>
+          <span class="nav-logo-tagline">Back to Home</span>
+        </div>
+      </a>
+      <div>
+        <button class="rb-btn rb-btn-outline" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar rb-pulse-ring" id="user-avatar">U</div>
+        <h3 id="user-name">User</h3>
+        <p id="user-id">ID: —</p>
+      </div>
+      <div class="sidebar-nav">
+        <div class="sidebar-link active user-only" onclick="switchPanel('profile')" id="link-profile"><i class="fas fa-user"></i> Profile</div>
+        <div class="sidebar-link user-only" onclick="switchPanel('bookings')" id="link-bookings"><i class="fas fa-suitcase-rolling"></i> My Bookings</div>
+        <div class="sidebar-link user-only" onclick="switchPanel('wallet')" id="link-wallet"><i class="fas fa-wallet"></i> Wallet</div>
+        <div class="sidebar-link user-only" onclick="switchPanel('map')" id="link-map"><i class="fas fa-map-marked-alt"></i> Live Map</div>
+        <div class="sidebar-link user-only" onclick="switchPanel('messages')" id="link-messages"><i class="fas fa-envelope"></i> Messages</div>
+
+        <!-- Admin Links -->
+        <div class="sidebar-link admin-only" onclick="switchPanel('users')" id="link-users" style="display: none;"><i class="fas fa-users"></i> Users</div>
+        <div class="sidebar-link admin-only" onclick="switchPanel('finance')" id="link-finance" style="display: none;"><i class="fas fa-chart-line"></i> Finance</div>
+        <div class="sidebar-link admin-only" onclick="switchPanel('logs')" id="link-logs" style="display: none;"><i class="fas fa-eye"></i> Activity Logs</div>
+        <div class="sidebar-link admin-only" onclick="downloadBackup()" id="link-backup" style="display: none;"><i class="fas fa-file-excel"></i> Export Excel</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-content">
+
+      <!-- ====== PROFILE ====== -->
+      <div class="dashboard-panel active" id="panel-profile">
+        <div class="panel-title"><i class="fas fa-user-circle"></i> <span class="rb-blur-text">My Profile</span></div>
+        <div class="dashboard-card rb-gradient-border rb-shimmer">
+          <div class="profile-grid">
+            <div class="profile-item">
+              <label>Full Name</label>
+              <span id="profile-name">—</span>
+            </div>
+            <div class="profile-item">
+              <label>Email Address</label>
+              <span id="profile-email">—</span>
+            </div>
+            <div class="profile-item">
+              <label>Member Since</label>
+              <span id="profile-date">—</span>
+            </div>
+            <div class="profile-item">
+              <label>Account Status</label>
+              <span style="color: #25d366;">● Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== BOOKINGS ====== -->
+      <div class="dashboard-panel" id="panel-bookings">
+        <div class="panel-title"><i class="fas fa-suitcase-rolling"></i> <span class="rb-blur-text">My Bookings</span></div>
+        <div class="dashboard-card rb-shimmer" id="bookings-list">
+          <div class="empty-state">
+            <i class="fas fa-plane-departure"></i>
+            <p>Your booked pilgrimages will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== WALLET ====== -->
+      <div class="dashboard-panel" id="panel-wallet">
+        <div class="panel-title"><i class="fas fa-wallet"></i> <span class="rb-blur-text">Wallet & Amounts</span></div>
+        <div class="dashboard-card rb-gradient-border" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #6e695e; margin-bottom: 8px; font-family: 'Outfit', sans-serif;">Available Balance</p>
+            <div class="wallet-amount">₹<span id="wallet-balance">0</span></div>
+          </div>
+          <button class="rb-btn rb-btn-gold" onclick="addFunds()"><i class="fas fa-plus-circle"></i> Add Funds</button>
+        </div>
+        <div class="dashboard-card rb-shimmer">
+          <h3 style="margin-bottom: 16px; color: #a39c89; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600;">Recent Transactions</h3>
+          <div class="empty-state" style="padding: 24px;">
+            <i class="fas fa-receipt" style="font-size: 2rem;"></i>
+            <p>No recent transactions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== MESSAGES ====== -->
+      <div class="dashboard-panel" id="panel-messages">
+        <div class="panel-title"><i class="fas fa-envelope"></i> <span class="rb-blur-text">Messages</span></div>
+        <div class="dashboard-card rb-shimmer">
+          <div class="empty-state">
+            <i class="fas fa-envelope-open-text"></i>
+            <p>Send us a direct email. We'll reply to your registered email address as soon as possible.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+          <input type="text" id="chat-input" class="rb-input" placeholder="Type your message here..." style="flex: 1; min-width: 250px;">
+          <button class="rb-btn rb-btn-gold" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send Email</button>
+        </div>
+      </div>
+
+      <!-- ====== MAP ====== -->
+      <div class="dashboard-panel" id="panel-map">
+        <div class="panel-title"><i class="fas fa-map-marked-alt"></i> <span class="rb-blur-text">Live Map & Route</span></div>
+        <div class="dashboard-card">
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <input type="text" id="map-search" class="rb-input" placeholder="Search destination (e.g. Kashi Vishwanath)" style="flex: 1; min-width: 250px;">
+            <button class="rb-btn rb-btn-gold" onclick="searchLocation(event)"><i class="fas fa-search"></i> Search</button>
+            <button class="rb-btn rb-btn-outline" onclick="trackMe(event)"><i class="fas fa-location-arrow"></i> Track Me</button>
+          </div>
+          <iframe id="map-iframe" width="100%" height="480" style="border-radius: 12px; border: 1px solid rgba(212,175,55,0.1);" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+
+      <!-- ====== ADMIN: USERS ====== -->
+      <div class="dashboard-panel" id="panel-users">
+        <div class="panel-title"><i class="fas fa-users-cog"></i> <span class="rb-blur-text">User Management</span></div>
+        <div class="dashboard-card rb-shimmer" style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Balance</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body">
+              <!-- Users populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ====== ADMIN: FINANCE ====== -->
+      <div class="dashboard-panel" id="panel-finance">
+        <div class="panel-title"><i class="fas fa-chart-line"></i> <span class="rb-blur-text">Finance Manager</span></div>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 24px;">
+          <div class="stat-card stat-income rb-shimmer">
+            <h4>Total Income</h4>
+            <h2 id="total-income">₹0</h2>
+            <i class="fas fa-arrow-trend-up"></i>
+          </div>
+          <div class="stat-card stat-expense rb-shimmer">
+            <h4>Total Expenses</h4>
+            <h2 id="total-expense">₹0</h2>
+            <i class="fas fa-arrow-trend-down"></i>
+          </div>
+          <div class="stat-card stat-profit rb-shimmer">
+            <h4>Net Profit</h4>
+            <h2 id="net-profit">₹0</h2>
+            <i class="fas fa-gem"></i>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <h3 style="margin-bottom: 16px; color: #a39c89; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600;">Add Transaction</h3>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <select id="trans-type" class="rb-input">
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+            <input type="number" id="trans-amount" class="rb-input" placeholder="Amount (₹)" style="width: 140px;">
+            <input type="text" id="trans-desc" class="rb-input" placeholder="Description" style="flex: 1; min-width: 200px;">
+            <button class="rb-btn rb-btn-gold" onclick="addTransaction()"><i class="fas fa-plus"></i> Add</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card rb-shimmer" style="overflow-x: auto;">
+          <h3 style="margin-bottom: 16px; color: #a39c89; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600;">Recent Transactions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="finance-table-body">
+              <!-- Finances populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ====== ADMIN: LOGS ====== -->
+      <div class="dashboard-panel" id="panel-logs">
+        <div class="panel-title"><i class="fas fa-eye"></i> <span class="rb-blur-text">CEO Track Records</span></div>
+        <div class="dashboard-card rb-shimmer" style="max-height: 600px; overflow-y: auto; overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Action</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="logs-table-body">
+              <!-- Logs populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+node_modules/
+database.sqlite
+database.sqlite-journal
+*.sqlite-journal
+.vscode/
+android/
+.DS_Store
+Thumbs.db
